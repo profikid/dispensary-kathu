@@ -128,8 +128,17 @@
         }
         
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--neon-green), var(--turquoise));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
         }
         
         .feature h3 {
@@ -207,12 +216,13 @@
             border-radius: 20px;
             overflow: hidden;
             aspect-ratio: 4/3;
-            background: linear-gradient(135deg, var(--turquoise), var(--purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
             position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
         }
         
         .gallery-item img {
@@ -223,12 +233,44 @@
         
         .gallery-item span {
             position: absolute;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             background: rgba(0,0,0,0.7);
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 10px;
             bottom: 1rem;
             left: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .video-section {
+            padding: 4rem 2rem;
+            background: rgba(0,0,0,0.15);
+        }
+        
+        .video-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--neon-green), var(--turquoise));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 2px solid rgba(64, 224, 208, 0.3);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
         footer {
@@ -338,48 +380,87 @@
         .map-wrapper {
             text-align: center;
         }
+        
+        .age-badge {
+            display: inline-block;
+            background: rgba(255, 16, 240, 0.1);
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <section class="hero">
         <div class="logo-container">
-            <h1 class="logo">🌿 ยาพี่ะ คลอง</h1>
+            <h1 class="logo">ยาพี่ะ คลอง</h1>
         </div>
         <p class="tagline">Cannabis Dispensary & Lemonade Chill Bar</p>
         <p class="subtitle">Premium strains · Fresh lemonade · Good vibes</p>
         
         <div class="location-badge">
-            📍 Near dCondo Kathu, Phuket, Thailand
+            Near dCondo Kathu, Phuket, Thailand
         </div>
         
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">🌿</div>
+                <div class="feature-icon">1</div>
                 <h3>Premium Cannabis</h3>
                 <p>Curated selection of top-shelf strains</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🍋</div>
+                <div class="feature-icon">2</div>
                 <h3>Fresh Lemonade</h3>
                 <p>Ice-cold refreshments daily</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">✨</div>
+                <div class="feature-icon">3</div>
                 <h3>Chill Atmosphere</h3>
                 <p>Relax, unwind, enjoy the vibe</p>
             </div>
         </div>
         
         <div class="hours-section">
-            <h2>🕐 Opening Hours</h2>
+            <h2>Opening Hours</h2>
             <p class="hours">Open Daily: 12:00 PM - 10:00 PM</p>
         </div>
         
         <a href="#map" class="cta-button">Find Us</a>
     </section>
     
+    <section class="gallery">
+        <h2>The Experience</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/storefront.jpg" alt="ยาพี่ะ คลอง storefront at night with neon lighting">
+                <span>Neon Nights</span>
+            </div>
+            <div class="gallery-item">
+                <img src="images/counter.jpg" alt="Service counter with purple LED lighting">
+                <span>Walk-Up Service</span>
+            </div>
+            <div class="gallery-item">
+                <img src="images/chill-zone.jpg" alt="Outdoor seating area with drinks">
+                <span>Chill Zone</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="video-section">
+        <h2>Walk With Us</h2>
+        <div class="video-container">
+            <video controls poster="images/storefront.jpg">
+                <source src="videos/walkthrough.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+    
     <section class="map-section" id="map">
-        <h2>📍 Find Us</h2>
+        <h2>Find Us</h2>
         <div class="map-wrapper">
             <div class="map-container">
                 <iframe 
@@ -390,50 +471,20 @@
                 </iframe>
             </div>
             <a href="https://www.google.com/maps/dir/?api=1&destination=7.910768,98.335679" target="_blank" class="directions-btn">
-                🚗 Get Directions
+                Get Directions
             </a>
-        </div>
-    </section>
-    
-    <section class="gallery">
-        <h2>The Vibe</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                🌿
-                <span>Premium Strains</span>
-            </div>
-            <div class="gallery-item">
-                🍋
-                <span>Fresh Lemonade</span>
-            </div>
-            <div class="gallery-item">
-                ✨
-                <span>Neon Nights</span>
-            </div>
-            <div class="gallery-item">
-                🌴
-                <span>Tropical Chill</span>
-            </div>
-            <div class="gallery-item">
-                🎵
-                <span>Good Music</span>
-            </div>
-            <div class="gallery-item">
-                🪴
-                <span>Green Vibes</span>
-            </div>
         </div>
     </section>
     
     <footer id="contact">
         <div class="social-links">
-            <a href="#">📸</a>
-            <a href="#">💬</a>
-            <a href="#">📍</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Line">LINE</a>
+            <a href="#map" aria-label="Maps">MAP</a>
         </div>
         <p>ยาพี่ะ คลอง · Cannabis Dispensary & Chill Bar</p>
         <p>Near dCondo Kathu, Phuket, Thailand</p>
-        <p style="margin-top: 1rem; font-size: 0.85rem;">🔞 Adults 20+ Only · Please consume responsibly</p>
+        <p class="age-badge">Adults 20+ Only · Please consume responsibly</p>
     </footer>
 </body>
 </html>
