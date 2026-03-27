@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยาพี่ะ คลอง | Cannabis Dispensary & Chill Bar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --turquoise: #40E0D0;
+            --purple: #9D4EDD;
+            --neon-green: #39FF14;
+            --neon-pink: #FF10F0;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            color: var(--light);
+            min-height: 100vh;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(64, 224, 208, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(57, 255, 20, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .logo-container {
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .logo {
+            font-family: 'Kanit', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-green), var(--turquoise));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(57, 255, 20, 0.3);
+            letter-spacing: -2px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--turquoise);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 3rem;
+        }
+        
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(64, 224, 208, 0.1);
+            border: 1px solid var(--turquoise);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--turquoise);
+            margin-bottom: 3rem;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin-bottom: 3rem;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-green);
+            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .feature p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .hours-section {
+            background: rgba(157, 78, 221, 0.1);
+            border: 1px solid var(--purple);
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hours-section h2 {
+            color: var(--neon-pink);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .hours {
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--neon-green), var(--turquoise));
+            color: var(--dark);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(57, 255, 20, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(57, 255, 20, 0.5);
+        }
+        
+        .gallery {
+            padding: 4rem 2rem;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .gallery h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--turquoise), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--turquoise), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-item span {
+            position: absolute;
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            bottom: 1rem;
+            left: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--turquoise);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--neon-green);
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.2rem;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        .neon-text {
+            animation: neon 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+            }
+            to {
+                text-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green), 0 0 40px var(--neon-green), 0 0 50px var(--turquoise);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="logo-container">
+            <h1 class="logo">🌿 ยาพี่ะ คลอง</h1>
+        </div>
+        <p class="tagline">Cannabis Dispensary & Lemonade Chill Bar</p>
+        <p class="subtitle">Premium strains · Fresh lemonade · Good vibes</p>
+        
+        <div class="location-badge">
+            📍 Near dCondo Kathu, Phuket, Thailand
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🌿</div>
+                <h3>Premium Cannabis</h3>
+                <p>Curated selection of top-shelf strains</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🍋</div>
+                <h3>Fresh Lemonade</h3>
+                <p>Ice-cold refreshments daily</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3>Chill Atmosphere</h3>
+                <p>Relax, unwind, enjoy the vibe</p>
+            </div>
+        </div>
+        
+        <div class="hours-section">
+            <h2>🕐 Opening Hours</h2>
+            <p class="hours">Open Daily: 12:00 PM - 10:00 PM</p>
+        </div>
+        
+        <a href="#contact" class="cta-button">Find Us</a>
+    </section>
+    
+    <section class="gallery">
+        <h2>The Vibe</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                🌿
+                <span>Premium Strains</span>
+            </div>
+            <div class="gallery-item">
+                🍋
+                <span>Fresh Lemonade</span>
+            </div>
+            <div class="gallery-item">
+                ✨
+                <span>Neon Nights</span>
+            </div>
+            <div class="gallery-item">
+                🌴
+                <span>Tropical Chill</span>
+            </div>
+            <div class="gallery-item">
+                🎵
+                <span>Good Music</span>
+            </div>
+            <div class="gallery-item">
+                🪴
+                <span>Green Vibes</span>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="social-links">
+            <a href="#">📸</a>
+            <a href="#">💬</a>
+            <a href="#">📍</a>
+        </div>
+        <p>ยาพี่ะ คลอง · Cannabis Dispensary & Chill Bar</p>
+        <p>Near dCondo Kathu, Phuket, Thailand</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">🔞 Adults 20+ Only · Please consume responsibly</p>
+    </footer>
+</body>
+</html>
